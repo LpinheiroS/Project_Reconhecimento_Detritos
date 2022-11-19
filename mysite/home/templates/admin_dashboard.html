@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/bootstrap.css' %}" />
+    <title>Tela Inicial</title>
+</head>
+
+<body class="bg-dark text-white" style="margin: 0 auto; font-family: 'Dongle', sans-serif;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'admin_dashboard' %}" style="font-size: 2rem;">Bem-vindo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size: 2rem;">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'minhas_analises' %}">Minhas Analises</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'meus_documentos' %}">Meus Documentos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'perform_logout' %}" class="nav-link">Sair</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    
+
+</body>
+
+</html>
