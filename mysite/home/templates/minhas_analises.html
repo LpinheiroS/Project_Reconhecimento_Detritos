@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/bootstrap.css' %}" />
+    <title>Minhas Analises</title>
+</head>
+
+<body class="bg-dark text-white" style="margin: 0 auto; font-family: 'Dongle', sans-serif;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'admin_dashboard' %}" style="font-size: 2rem;">Bem-vindo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size: 2rem;">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'minhas_analises' %}">Minhas Analises</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'meus_documentos' %}">Meus Documentos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'perform_logout' %}" class="nav-link">Sair</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <div class="d-flex p-2 justify-content-center">
+    <div class="card bg-dark" style="width: 18rem;">
+        <img src="{% static 'img/videofoto.png' %}" width="240px" height="240px"  class="card-img-top" alt="...">
+        <div class="card-body" style="font-size: 2rem;">
+            <form method="POST" action="{% url 'main' %}">
+                {% csrf_token %}
+              <h5 class="card-title" style="font-size: inherit;">Fazer upload de videos</h5>
+              <p class="card-text" style="font-size: 1.5rem">Insira a URL no campo abaixo:</p>
+              <input type="text" style="width: 100%; height: 30px;" placeholder="URL" name="urlArquivo"
+              id="urlArquivo" />
+              <button type="submit" class="btn indigo btn-primary"
+                                style="font-size: 1.5rem;width: 80%;height: 40px; ">Adicionar</button>
+            </form>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>
