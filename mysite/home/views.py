@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
@@ -54,11 +55,27 @@ def perform_logout(request):
 def minhas_analises(request):
     return render(request, "minhas_analises.html")
 
-
 def meus_documentos(request):
     return render(request, "meus_documentos.html")
 
+def cadastro_usuario(request):
+    return render(request,"cadastro_usuario.html")
 
+def cadastrar_usuario(request):
+    today = datetime.datetime.now()
+    try:
+        usuario_aux = User.objects.get(email=request.POST['emailCad'])
+        if usuario_aux:
+            return render(request, 'cadastro_usuario.html', {'msg': 'Usuario existente',"today": today})
+
+    except User.DoesNotExist:
+        usuario = request.POST['usuarioCad']
+        email = request.POST['emailCad']
+        senha = request.POST['senhaCad']
+
+        novoUsuario = User.objects.create_user(username=usuario, email=email, password=senha)
+        novoUsuario.save()
+        return HttpResponseRedirect(reverse("admin_dashboard"))
 
 
 

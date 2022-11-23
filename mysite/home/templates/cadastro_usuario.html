@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'img\sat.ico' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/bootstrap.css' %}" />
+    <title>Login</title>
+</head>
+
+<body class="bg-dark text-white" style="margin: 0 auto; font-family: 'Dongle', sans-serif;">
+    <div class="d-flex p-2 justify-content-center">
+        <div class="card bg-dark" style="width: 22rem;">
+            <img src="{% static 'img/sat.ico' %}" class="card-img-top" alt="...">
+            <div class="card-body" style="font-size: 2rem;">
+                <h5 class="card-title">Cadastro de Usuario</h5>
+                    <form method="POST" action="{% url 'cadastrar_usuario' %}">
+                        {% csrf_token %}
+                        <p style="color:tomato">{{ msg }}</p>
+                        <p class="card-text" style="font-size: inherit;">Digite o e-mail</p>
+                        <input type="text" style="width: 80%;" placeholder="E-mail" name="emailCad"
+                            id="emailCad" />
+
+                            <p class="card-text" style="font-size: inherit;">Digite o nome de usuario</p>
+                            <input type="text" name="usuarioCad" placeholder="Nome do usuario" id="usuarioCad" />
+
+                        <p class="card-text" style="font-size: inherit;">Digite a senha</p>
+                        <input type="password" name="senhaCad" placeholder="Sua senha" id="senhaCad" />
+                        
+                        <p></p>
+                        <button type="submit" class="btn indigo btn-primary"
+                            style="font-size: 1.5rem;width: 80%;height: 40px; ">Cadastrar</button>
+                        <a href="{% url 'index' %}" class="nav-link">Sair</a>
+                    </form>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+<footer class="bg-light text-center text-lg-start fixed-bottom" style="color: rgb(92, 51, 100); margin-top: 100px;">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); font-size: 1.5rem;">
+      Desenvolvido por Felipe Saldanha e Lucas Pinheiro - ADS/2022
+    </div>
+  </footer>
+
+</html>
