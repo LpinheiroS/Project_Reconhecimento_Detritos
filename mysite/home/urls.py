@@ -13,6 +13,7 @@ urlpatterns = [
     path("meus_documentos", views.meus_documentos, name="meus_documentos"),
     path("main", views.main, name="main"),
     path("cadastro_usuario", views.cadastro_usuario, name="cadastro_usuario"),
-    path("cadastrar_usuario", views.cadastrar_usuario, name="cadastrar_usuario")
+    path("cadastrar_usuario", views.cadastrar_usuario, name="cadastrar_usuario"),
+    path("retorna_pdf", views.retorna_pdf, name="retorna_pdf")
 ]
 
